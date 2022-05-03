@@ -26,7 +26,7 @@ kubectl run ${podName:?} --restart=Never -it --rm --image overriden --overrides 
         "name": "nsenter",
         "image": "alexeiled/nsenter",
         "command": [
-          "/nsenter", "--all", "--target=1", "--", "su", "-"
+          "/nsenter", "-m", "-u", "-i", "-n", "-p", "-C", "-r", "-w", "--target=1", "--", "su", "-"
         ],
         "stdin": true,
         "tty": true,
